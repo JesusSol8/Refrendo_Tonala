@@ -1,0 +1,10 @@
+.git
+.venv
+.packages
+.temp
+__pycache__
+*.sqlite3
+.env
+.local-settings.json
+.demo-access.txt
+staticfiles

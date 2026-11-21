@@ -1,0 +1,130 @@
+Creating test database for alias 'default' ('file:memorydb_default?mode=memory&cache=shared')...
+
+Found 44 test(s).
+Operations to perform:
+  Synchronize unmigrated apps: messages, staticfiles
+  Apply all migrations: admin, auth, contenttypes, refrendo, sessions
+Synchronizing apps without migrations:
+  Creating tables...
+    Running deferred SQL...
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying admin.0003_logentry_add_action_flag_choices... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying auth.0009_alter_user_last_name_max_length... OK
+  Applying auth.0010_alter_group_name_max_length... OK
+  Applying auth.0011_update_proxy_permissions... OK
+  Applying auth.0012_alter_user_first_name_max_length... OK
+  Applying refrendo.0001_initial... OK
+  Applying refrendo.0002_append_only... OK
+test_expired_document_still_authenticated_but_not_current (refrendo.tests.AdditionalContractTests.test_expired_document_still_authenticated_but_not_current) ... ok
+test_json_lookup_authorizes_quote (refrendo.tests.AdditionalContractTests.test_json_lookup_authorizes_quote) ... ok
+test_malformed_json_lookup (refrendo.tests.AdditionalContractTests.test_malformed_json_lookup) ... Bad Request: /api/v1/licencias/consulta/
+ok
+test_no_cross_year_tariff_fallback (refrendo.tests.AdditionalContractTests.test_no_cross_year_tariff_fallback) ... ok
+test_unknown_public_hash (refrendo.tests.AdditionalContractTests.test_unknown_public_hash) ... Not Found: /verificar
+ok
+test_academic_tariff_blocked_for_external_payments (refrendo.tests.PortalTests.test_academic_tariff_blocked_for_external_payments) ... ok
+test_all_demo_methods (refrendo.tests.PortalTests.test_all_demo_methods) ... ok
+test_all_ineligible_cases (refrendo.tests.PortalTests.test_all_ineligible_cases) ... ok
+test_amount_currency_and_payment_reference (refrendo.tests.PortalTests.test_amount_currency_and_payment_reference) ... ok
+test_another_browser_cannot_view_or_download (refrendo.tests.PortalTests.test_another_browser_cannot_view_or_download) ... Not Found: /tramite/2c5f3cbc-1ed5-40b3-8fc2-dfce3ac1acdb/
+Not Found: /tramite/2c5f3cbc-1ed5-40b3-8fc2-dfce3ac1acdb/caratula.pdf
+Not Found: /api/v1/tramites/2c5f3cbc-1ed5-40b3-8fc2-dfce3ac1acdb/
+ok
+test_audit_tail_tamper_detected (refrendo.tests.PortalTests.test_audit_tail_tamper_detected) ... ok
+test_checkout_idempotent (refrendo.tests.PortalTests.test_checkout_idempotent) ... ok
+test_client_amount_is_ignored (refrendo.tests.PortalTests.test_client_amount_is_ignored) ... ok
+test_complete_shipping_required (refrendo.tests.PortalTests.test_complete_shipping_required) ... ok
+test_csrf_on_checkout_and_quote (refrendo.tests.PortalTests.test_csrf_on_checkout_and_quote) ... Forbidden (CSRF cookie not set.): /
+Forbidden (CSRF cookie not set.): /api/v1/cotizacion/
+Forbidden (CSRF cookie not set.): /liquidacion/
+ok
+test_database_prevents_audit_and_certificate_mutation (refrendo.tests.PortalTests.test_database_prevents_audit_and_certificate_mutation) ... ok
+test_delivery_uses_longest_postal_prefix (refrendo.tests.PortalTests.test_delivery_uses_longest_postal_prefix) ... ok
+test_demo_route_disabled (refrendo.tests.PortalTests.test_demo_route_disabled) ... Not Found: /pago-demostracion/7d4011bc-06ee-45dd-a44a-e44830123158/
+ok
+test_duplicate_submit_one_renewal (refrendo.tests.PortalTests.test_duplicate_submit_one_renewal) ... ok
+test_fulfillment_requires_paid_and_matching_delivery (refrendo.tests.PortalTests.test_fulfillment_requires_paid_and_matching_delivery) ... ok
+test_lookup_only_two_fields_and_normalization (refrendo.tests.PortalTests.test_lookup_only_two_fields_and_normalization) ... ok
+test_lookup_throttled (refrendo.tests.PortalTests.test_lookup_throttled) ... ok
+test_mismatch_does_not_authorize (refrendo.tests.PortalTests.test_mismatch_does_not_authorize) ... ok
+test_missing_tariff_fails_closed (refrendo.tests.PortalTests.test_missing_tariff_fails_closed) ... ok
+test_no_coverage_and_unknown_contribution (refrendo.tests.PortalTests.test_no_coverage_and_unknown_contribution) ... ok
+test_pdf_and_qr_generated (refrendo.tests.PortalTests.test_pdf_and_qr_generated) ... ok
+test_pdf_blocked_before_payment (refrendo.tests.PortalTests.test_pdf_blocked_before_payment) ... Not Found: /tramite/6b577512-1fb1-49e0-9dc0-978a75fc0865/caratula.pdf
+ok
+test_pending_then_approved_issues_once (refrendo.tests.PortalTests.test_pending_then_approved_issues_once) ... ok
+test_public_verification_minimizes_data (refrendo.tests.PortalTests.test_public_verification_minimizes_data) ... ok
+test_quote_decimal_and_optional_contributions (refrendo.tests.PortalTests.test_quote_decimal_and_optional_contributions) ... ok
+test_refund_invalidates_public_document_and_download (refrendo.tests.PortalTests.test_refund_invalidates_public_document_and_download) ... Not Found: /verificar
+Not Found: /tramite/318d0bd6-f8f7-4d1e-b1aa-e61ca55a2003/caratula.pdf
+ok
+test_rejection_no_certificate (refrendo.tests.PortalTests.test_rejection_no_certificate) ... ok
+test_staff_permissions_and_export (refrendo.tests.PortalTests.test_staff_permissions_and_export) ... Forbidden (Permission denied): /gestion/
+Traceback (most recent call last):
+  File "C:\Users\mike2\Documents\Codex\2026-11-05\he-we-mira-tengo-que-hacer-4\work\deps\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mike2\Documents\Codex\2026-11-05\he-we-mira-tengo-que-hacer-4\work\deps\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mike2\Documents\Codex\2026-11-05\he-we-mira-tengo-que-hacer-4\work\deps\django\contrib\auth\decorators.py", line 56, in _view_wrapper
+    test_pass = test_func(request.user)
+                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mike2\Documents\Codex\2026-11-05\he-we-mira-tengo-que-hacer-4\work\deps\django\contrib\auth\decorators.py", line 129, in check_perms
+    raise PermissionDenied
+django.core.exceptions.PermissionDenied
+Forbidden (Permission denied): /gestion/bitacora/
+Traceback (most recent call last):
+  File "C:\Users\mike2\Documents\Codex\2026-11-05\he-we-mira-tengo-que-hacer-4\work\deps\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mike2\Documents\Codex\2026-11-05\he-we-mira-tengo-que-hacer-4\work\deps\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mike2\Documents\Codex\2026-11-05\he-we-mira-tengo-que-hacer-4\work\deps\django\contrib\auth\decorators.py", line 56, in _view_wrapper
+    test_pass = test_func(request.user)
+                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mike2\Documents\Codex\2026-11-05\he-we-mira-tengo-que-hacer-4\work\deps\django\contrib\auth\decorators.py", line 129, in check_perms
+    raise PermissionDenied
+django.core.exceptions.PermissionDenied
+ok
+test_stale_notification_does_not_downgrade (refrendo.tests.PortalTests.test_stale_notification_does_not_downgrade) ... ok
+test_tampered_payload_detected (refrendo.tests.PortalTests.test_tampered_payload_detected) ... ok
+test_templates_and_security_headers (refrendo.tests.PortalTests.test_templates_and_security_headers) ... ok
+test_bad_amount_rejected (refrendo.tests.WebhookTests.test_bad_amount_rejected) ... Bad Request: /api/v1/mercadopago/webhook/
+ok
+test_invalid_signature_no_provider_call (refrendo.tests.WebhookTests.test_invalid_signature_no_provider_call) ... Unauthorized: /api/v1/mercadopago/webhook/
+ok
+test_other_reference_rejected (refrendo.tests.WebhookTests.test_other_reference_rejected) ... Bad Request: /api/v1/mercadopago/webhook/
+ok
+test_preference_contains_server_total_and_payment_reference (refrendo.tests.WebhookTests.test_preference_contains_server_total_and_payment_reference) ... ok
+test_provider_outage_requests_retry (refrendo.tests.WebhookTests.test_provider_outage_requests_retry) ... Service Unavailable: /api/v1/mercadopago/webhook/
+ok
+test_return_url_does_not_mark_paid (refrendo.tests.WebhookTests.test_return_url_does_not_mark_paid) ... ok
+test_signed_notification_queries_provider_and_is_idempotent (refrendo.tests.WebhookTests.test_signed_notification_queries_provider_and_is_idempotent) ... ok
+test_stale_signature_rejected (refrendo.tests.WebhookTests.test_stale_signature_rejected) ... Unauthorized: /api/v1/mercadopago/webhook/
+ok
+
+----------------------------------------------------------------------
+Ran 44 tests in 1.884s
+
+OK
+Destroying test database for alias 'default' ('file:memorydb_default?mode=memory&cache=shared')...
+
+  Applying sessions.0001_initial... OK
+System check identified no issues (0 silenced).
+7 licencias ficticias y cat�logos de demostraci�n disponibles.
+7 licencias ficticias y cat�logos de demostraci�n disponibles.
+7 licencias ficticias y cat�logos de demostraci�n disponibles.
