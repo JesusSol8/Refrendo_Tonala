@@ -2,10 +2,31 @@
     tls {
         protocols tls1.3
     }
+
     encode zstd gzip
+
     reverse_proxy web:8000 {
         header_up X-Forwarded-Proto https
         header_up X-Real-IP {remote_host}
     }
+
+    log {
+        output stdout
+        format json
+    }
 }
 
+:80 {
+    # Diagnóstico mediante IP pública, independiente del certificado TLS.
+    handle /salud/ {
+        reverse_proxy web:8000 {
+            header_up X-Forwarded-Proto https
+            header_up X-Real-IP {remote_host}
+        }
+    }
+
+    # El portal y el administrador conservan HTTPS.
+    handle {
+        redir https://{$PUBLIC_HOST}{uri} 308
+    }
+}
