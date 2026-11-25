@@ -1,0 +1,11 @@
+flowchart LR
+    U[Ciudadano o evaluador] -->|HTTPS 443| C[Caddy en contenedor]
+    subgraph AWS[AWS Learner Lab · us-east-1 · VPC predeterminada]
+      subgraph EC2[EC2 t3.small · Ubuntu · LabInstanceProfile]
+        C -->|HTTP interno 8000| D[Django 5.2 + Waitress]
+        D -->|AWS SDK con rol| S[Exportador de auditoría]
+      end
+      D -->|PostgreSQL 5432 · tráfico desde SG web| R[(RDS PostgreSQL 16 · db.t3.micro · privado)]
+    end
+    S -->|JSON de auditoría| B[(S3 privado · versionado)]
+    G[GitHub: código] -. git clone al crear EC2 .-> EC2

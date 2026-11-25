@@ -20,9 +20,9 @@ No es necesario crear un archivo `.env` manualmente ni ejecutar `INICIAR.cmd` en
 2. Clona el repositorio y ejecuta el script de aprovisionamiento indicando la URL pública del repositorio Git:
 
 ```bash
-git clone https://github.com/TU-USUARIO/refrendo-tonala.git
-cd refrendo-tonala
-bash infra/deploy_aws.sh https://github.com/TU-USUARIO/refrendo-tonala.git
+git clone https://github.com/JesusSol8/Refrendo_Tonala.git
+cd Refrendo_Tonala
+bash infra/deploy_aws.sh https://github.com/JesusSol8/Refrendo_Tonala.git
 ```
 
 3. **¿Qué construye automáticamente el script? (~6 minutos):**
@@ -122,18 +122,34 @@ docker compose -f /opt/refrendo-tonala/compose.aws.yaml exec -T web python scrip
 
 ---
 
+## Detener o eliminar
+
+Apagar EC2 y RDS conserva datos, pero el almacenamiento y otros recursos pueden seguir generando cargos. RDS puede reiniciarse automáticamente después de siete días detenido. Para dejar de consumir recursos, usa el script de limpieza si existe en la versión del repositorio y revisa después los recursos remanentes, snapshots y bucket. No ejecutes un script de limpieza sin confirmar que el bucket y la base son exclusivamente de esta demostración: borrarlos elimina datos.
+
+## Evidencia y límites
+
+- La copia del proyecto contiene un registro de 44 pruebas automatizadas locales aprobadas y una nota de recorrido local.
+- En la conversación anterior se reportó RDS disponible con PostgreSQL 16.15 y EC2 en estado `running`. No quedó evidencia de HTTPS, página pública ni healthcheck de la aplicación en AWS.
+- La prueba de caída del contenedor está escrita, pero no hay resultado guardado de su ejecución en AWS. Tampoco hay pruebas reales de cambio de IP, interrupción de RDS, carga, SLA, restauración o costos facturados.
+- Mercado Pago tiene lógica probada con respuestas simuladas; falta validación con una cuenta y credenciales reales.
+
 ## Documentación para entregar
 
 | Archivo | Contenido |
 |---|---|
-| `docs/AWS_DOCUMENTACION.md` | Guía IaC en AWS, diagrama nube, justificación, pruebas de resiliencia y costos |
+| `docs/AWS_DOCUMENTACION.md` | Guía IaC en AWS, diagrama de arquitactura nube, justificación, pruebas de resiliencia y costos |
 | `docs/ARQUITECTURA.md` | Componentes, decisiones, seguridad, DER y diccionario de datos |
+| `docs/ARQUITECTURA.mmd` | Diagrama arquitectura aws | 
 | `docs/RTM.md` y `docs/RTM.csv` | Requisito → implementación → prueba → estado y pendientes |
 | `docs/PLAN_DE_PRUEBAS.md` | Casos, escenarios, evidencias y criterios de aceptación |
+| `docs/GUIA_DE_PRUEBAS.md` | Es la guia para poder replicar las pruebas aplicadas en este proyecto |
 | `docs/MANUAL_DEMO.md` | Guion de exposición, datos de prueba y respuestas para defender el proyecto |
 | `docs/DESPLIEGUE.md` | Instalación de pruebas HTTPS y configuración del proveedor de pagos |
 | `docs/GESTION_PROYECTO.md` | Alcance, EDT, cronograma propuesto, riesgos y GitFlow |
 | `docs/DECISIONES_Y_FUENTES.md` | Supuestos, discrepancias del enunciado y fuentes primarias |
 | `docs/REQUERIMIENTOS_ORIGINALES.md` | Copia del documento de requerimientos recibido |
+| `docs/PRODUCCION.md` | Plan si se llega a poner la pagina en produccion real y no un entorno escolar |
+
+|Las instrucciones de [docs/RESILIENCIA.md](docs/RESILIENCIA.md) Solas preubas y su resultado en aws.| 
 
 El repositorio local incluye ramas `main` y `develop`, etiqueta de entrega y una rama de funcionalidad/release para mostrar GitFlow. `docs/GESTION_PROYECTO.md` explica cómo continuarlo. Si recibiste el ZIP, incluye un respaldo `repositorio.bundle` que conserva commits, ramas y etiquetas.
